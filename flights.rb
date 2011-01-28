@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'time'
 
 def average_time_of_arrival (times)
