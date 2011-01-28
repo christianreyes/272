@@ -1,4 +1,3 @@
 #!/usr/bin/env ruby
 
-i = 100
-puts i
+puts "I AM A TEST!"
