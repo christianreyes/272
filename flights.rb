@@ -29,7 +29,7 @@ def average_time_of_arrival (times)
 		arr_time.sort!
 		sum = total - arr_time[0].to_i * arr_time.length
 		average = sum / arr_time.length
-		puts "Average time #{Time.at(arr_time[0] + average)}"
+		puts (arr_time[0]+average).strftime("%I:%M%P")
 	end
 end
 
@@ -40,7 +40,4 @@ arr = ["11:51am", "11:56am", "12:01pm", "12:06pm", "12:11pm"]
 average_time_of_arrival(arr)
 
 arr = ["6:41am", "6:51am", "7:01am"]
-average_time_of_arrival(arr)
-
-arr = ["11:51am", "11:56am", "12:01pm", "12:06pm", "12:11pm"]
 average_time_of_arrival(arr)
