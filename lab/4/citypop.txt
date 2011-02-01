@@ -1,0 +1,20 @@
+Phoenix	AZ	1,462,000
+Los Angeles	CA	3,845,000
+San Diego	CA	1,269,000
+San Francisco	CA	740,000
+San Jose	CA	928,000
+Jacksonville	FL	783,000
+Chicago	IL	2,926,000
+Indianapolis	IN	784,000
+Boston	MA	601,000
+Baltimore	MD	636,000
+Detroit	MI	887,000
+New York City	NY	8,143,000
+Columbus	OH	731,000
+Philadelphia	PA	1,463,000
+Memphis	TN	672,000
+Austin	TX	690,000
+Dallas	TX	1,214,000
+Houston	TX	2,017,000
+San Antonio	TX	1,257,000
+Charlotte	NC	624,000

@@ -1,0 +1,20 @@
+New York City	NY	3,437,000
+Chicago	IL	1,699,000
+Philadelphia	PA	1,294,000
+St. Louis MO	575,000
+Boston	MA	561,000
+Baltimore	MD	509,000
+Cleveland	OH	382,000
+Buffalo	NY	352,000
+San Francisco	CA	343,000
+Cincinnati	OH	324,000
+Pittsburgh	PA	322,000
+New Orleans	LA	287,000
+Detroit	MI	286,000
+Milwaukee	WI	285,000
+Washington	DC	279,000
+Newark	NJ	246,000
+Jersey City	NJ	206,000
+Louisville	KY	205,000
+Minneapolis	MN	203,000
+Providence	RI	176,000
