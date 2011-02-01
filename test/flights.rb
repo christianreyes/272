@@ -37,7 +37,7 @@ def average_time_of_arrival (times = nil)
     end
 end
 
-puts average_time_of_arrival("fred");
+#puts average_time_of_arrival("fred");
 
 #arr = ["11:51pm", "11:56pm", "12:01am", "12:06am", "12:11am"]
 #average_time_of_arrival(arr)

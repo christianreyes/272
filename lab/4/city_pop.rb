@@ -27,6 +27,7 @@ class Population
             end
         else
             puts "#{state} has no cities in the Top 40."
+            puts "It is too small and unknown"
         end
     end
 
