@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "I AM A TEST!"
+100.times do
+    puts "I HATE WINDOWS!"
+end
