@@ -12,4 +12,5 @@ avg_time = seconds.inject(0) {|sum,n| sum += n}.to_f / seconds.length
 #
 #send reminders
 #
-#https://github.com/klingoncodewarrior/67272-S11_PATSv1
+#https://github.com/klingoncodewarrior/67272-S11_PATSvr
+#attr_accessible -> what the user can interact with
