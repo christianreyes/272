@@ -33,3 +33,4 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'nifty-generators'
 gem 'will_paginate'
 gem "mocha", :group => :test
+gem "bcrypt-ruby", :require => "bcrypt"

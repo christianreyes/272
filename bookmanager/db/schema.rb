@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110208003524) do
+ActiveRecord::Schema.define(:version => 20110208013703) do
 
   create_table "authors", :force => true do |t|
     t.string   "first_name"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(:version => 20110208003524) do
 
   create_table "publishers", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
