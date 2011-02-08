@@ -10,7 +10,7 @@
 </p>
 <p>
   <strong>Publisher:</strong>
-  <%= @book.publisher.name %>
+  <%= @book.publisher_id %>
   <%= render :partial => 'list_of_authors' %>
 </p>
 
