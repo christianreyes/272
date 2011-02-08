@@ -5,7 +5,7 @@ class Integer
         if(self >0 and self < 4000)
             digits = self.to_s.split(//).reverse!
             out = String.new
-            numerals = %w(I V X L C D M)
+            numerals = %w(I V X L C D M) 
 
             digits.each_with_index do |digit, index|
                 digit = digit.to_i

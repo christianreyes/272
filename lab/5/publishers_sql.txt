@@ -1,0 +1,5 @@
+INSERT INTO `publishers` (`id`, `name`) VALUES (1, 'Pragmatic Bookshelf'); 
+INSERT INTO `publishers` (`id`, `name`) VALUES (2, 'Washington Square Press'); 
+INSERT INTO `publishers` (`id`, `name`) VALUES (3, 'Addison Wesley'); 
+INSERT INTO `publishers` (`id`, `name`) VALUES (4, 'Everyman Library'); 
+INSERT INTO `publishers` (`id`, `name`) VALUES (5, 'New Riders'); 

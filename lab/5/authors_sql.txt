@@ -1,0 +1,11 @@
+INSERT INTO `authors` (`id`, `first_name`, `last_name`) VALUES (1, 'Sam', 'Ruby'); 
+INSERT INTO `authors` (`id`, `first_name`, `last_name`) VALUES (2, 'Dave', 'Thomas'); 
+INSERT INTO `authors` (`id`, `first_name`, `last_name`) VALUES (3, 'Hal', 'Fulton'); 
+INSERT INTO `authors` (`id`, `first_name`, `last_name`) VALUES (4, 'Robert', 'Hoekman');
+INSERT INTO `authors` (`id`, `first_name`, `last_name`) VALUES (5, 'David', 'Hannson'); 
+INSERT INTO `authors` (`id`, `first_name`, `last_name`) VALUES (6, 'Dante', 'Alighieri'); 
+INSERT INTO `authors` (`id`, `first_name`, `last_name`) VALUES (7, 'William', 'Shakespeare');
+INSERT INTO `authors` (`id`, `first_name`, `last_name`) VALUES (8, 'Jane', 'Austen'); 
+
+
+

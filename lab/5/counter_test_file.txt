@@ -1,0 +1,3 @@
+This is a file full of words. How many words? This I cannot tell you! Your program must do this for you. However, I can tell you that it has hyphens and dashes and sometimes even a semi-colon.
+
+Really -- this is just a simple text file. Nothing else to it!  No bizarre Lorem Ipsum text, just real words that real users might use.  Happy counting.
