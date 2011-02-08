@@ -3,5 +3,4 @@ class Publisher < ActiveRecord::Base
     has_many :books
     
     validates_presence_of :name
-    scope :all, order('name')
 end
