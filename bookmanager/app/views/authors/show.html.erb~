@@ -7,7 +7,6 @@
 <p>
   <strong>Last Name:</strong>
   <%= @author.last_name %>
-  <%= render :partial => 'list_of_books' %>
 </p>
 
 <p>
