@@ -1,0 +1,5 @@
+ROMAN_LOOKUP.inject("")do |result,(roman,arabic)|
+  count, number = number.divmod(arabic)
+  result << (roman * count)
+  result
+end
