@@ -34,9 +34,14 @@ class TestCounter < Test::Unit::TestCase
     assert_equal(20,count.character_count)
   end
 
-  def test_four_punct
+  def test_punct_words
     count = Counter.new("punct_test.txt")
-    assert_equal(4,count.word_count)
+    assert_equal(6,count.word_count)
+  end
+  
+  def test_punct_character_count
+    count = Counter.new("punct_test.txt")
+    assert_equal(28,count.character_count)
   end
 
 end
