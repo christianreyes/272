@@ -109,6 +109,10 @@
 
 /* An entry in the store catalog */
 
+#store .entry form, #store .entry form div {
+  display: inline;
+}
+
 #store  .entry {
   overflow: auto;
   margin-top: 1em;
