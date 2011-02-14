@@ -4,14 +4,14 @@ require "test/unit"
 
 class TestCounter < Test::Unit::TestCase
 
-  def test_word_count_works
+  def test_word_count_works_file
     count = Counter.new("counter_test_file.txt")
     assert_equal(65,count.word_count)
   end
 
-  def test_character_count
+  def test_character_count_file
     count = Counter.new("counter_test_file.txt")
-    assert_equal(276,count.character_count)
+    assert_equal(265,count.character_count)
   end
   
   def test_1_word
@@ -34,5 +34,9 @@ class TestCounter < Test::Unit::TestCase
     assert_equal(20,count.character_count)
   end
 
+  def test_four_punct
+    count = Counter.new("punct_test.txt")
+    assert_equal(4,count.word_count)
+  end
 
 end
