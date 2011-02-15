@@ -1,0 +1,24 @@
+<% title "Child" %>
+
+<p>
+  <strong>Id:</strong>
+  <%= @child.id %>
+</p>
+<p>
+  <strong>First Name:</strong>
+  <%= @child.first_name %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%= @child.last_name %>
+</p>
+<p>
+  <strong>Active:</strong>
+  <%= @child.active %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_child_path(@child) %> |
+  <%= link_to "Destroy", @child, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", children_path %>
+</p>

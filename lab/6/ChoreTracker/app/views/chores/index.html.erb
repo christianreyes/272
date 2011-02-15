@@ -1,0 +1,25 @@
+<% title "Chores" %>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Child</th>
+    <th>Task</th>
+    <th>Due On</th>
+    <th>Completed</th>
+  </tr>
+  <% for chore in @chores %>
+    <tr>
+      <td><%= chore.id %></td>
+      <td><%= chore.child_id %></td>
+      <td><%= chore.task_id %></td>
+      <td><%= chore.due_on %></td>
+      <td><%= chore.completed %></td>
+      <td><%= link_to "Show", chore %></td>
+      <td><%= link_to "Edit", edit_chore_path(chore) %></td>
+      <td><%= link_to "Destroy", chore, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Chore", new_chore_path(chore) %></p>

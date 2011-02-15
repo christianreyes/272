@@ -1,0 +1,23 @@
+<% title "Children" %>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Active</th>
+  </tr>
+  <% for child in @children %>
+    <tr>
+      <td><%= child.id %></td>
+      <td><%= child.first_name %></td>
+      <td><%= child.last_name %></td>
+      <td><%= child.active %></td>
+      <td><%= link_to "Show", child %></td>
+      <td><%= link_to "Edit", edit_child_path(child) %></td>
+      <td><%= link_to "Destroy", child, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Child", new_child_path(child) %></p>
