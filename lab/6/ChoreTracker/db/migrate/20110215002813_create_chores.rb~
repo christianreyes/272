@@ -5,7 +5,7 @@ class CreateChores < ActiveRecord::Migration
       t.integer :child_id
       t.integer :task_id
       t.date :due_on
-      t.date :completed, :default => false
+      t.date :completed
       t.timestamps
     end
   end
