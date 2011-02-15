@@ -9,10 +9,10 @@ class Chore < ActiveRecord::Base
     scope :all, :order => "due_on"
     
     scope :upcoming, lambda { where("chores.due_on IS NOT NULL AND chores.due_on >= ?", 
-     								Time.zone.now.strftime("%Y-%m-%d")) }
+     								Time.zone.now.strftime("%Y-%m-%d") }
     
     scope :past, lambda { where("chores.due_on IS NOT NULL AND chores.due_on < ?", 
-    									Time.zone.now.strftime("%Y-%m-%d")) }
+    									Time.zone.now.strftime("%Y-%m-%d") }
     									
     scope :incomplete, :is => false
     

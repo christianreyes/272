@@ -5,6 +5,6 @@ class Task < ActiveRecord::Base
     has_many :children, :through => :chores
     
     validates_presence_of :id, :name, :points, :active
-    validates_numericality_of :points, :greater_than => 0
+    validates_numericality_of :points, :gt => 0
     
 end
