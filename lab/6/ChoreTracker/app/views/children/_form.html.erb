@@ -1,20 +1,9 @@
-<%= form_for @child do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>
-  <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </p>
-  <p><%= f.submit %></p>
+<%= semantic_form_for(@child) do |f| %>
+  <% f.inputs do %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name, :hint => "Hint: Heimann is a good last name", :required => false %>
+    <%= f.input :active %>
+  <% end %>
+  
+  <%= f.buttons %>
 <% end %>

@@ -1,9 +1,9 @@
 7 RESTFUL Actions made during scaffolding.
 
-index GET R Select pets_path
-show GET R SELECT pet_path(pet)
-new GET R N/A new_pet_path
-create POST C INSERT new_pet_path
-edit GET R SELECT edit_pet_path
-update PUT U UPDATE edit_pet_path
-destroy DELETE D DELETE pet_path(pet)
+index    GET      R    Select    pets_path
+show     GET      R    SELECT    pet_path(pet)
+new      GET      R    N/A       new_pet_path
+create   POST     C    INSERT    new_pet_path
+edit     GET      R    SELECT    edit_pet_path(pet)
+update   PUT      U    UPDATE    edit_pet_path(pet)
+destroy  DELETE   D    DELETE    pet_path(pet)

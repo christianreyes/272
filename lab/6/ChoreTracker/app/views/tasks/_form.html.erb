@@ -1,20 +1,4 @@
-<%= form_for @task do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :points %><br />
-    <%= f.text_field :points %>
-  </p>
-  <p>
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </p>
-  <p><%= f.submit %></p>
+<%= semantic_form_for(@task) do |f| %>
+  <%= f.inputs %>
+  <%= f.buttons %>
 <% end %>

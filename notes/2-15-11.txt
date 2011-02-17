@@ -1,0 +1,30 @@
+Exam
+--------------------
+
+Rails + MVC concepts
+-basic concepts of rails
+-basic concepts of MVC
+-callback vs filter
+-model has callback, controller has filter
+-callback similar to trigger, before, after, update
+-filter: logged_in
+
+SQL
+-figure out what it returns
+-write 2 queries
+-use appropriate headers and order by
+
+-Study labs + PATS projects
+-built in helpers (phone # example)
+
+Regular expressions (lab 3)
+
+Ruby Programming Challenge
+-Open file and read it
+
+
+Test::Unit::TestCase
+
+Unit - Models
+Functional - Controllers
+Integration - both

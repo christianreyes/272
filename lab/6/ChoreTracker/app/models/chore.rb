@@ -4,7 +4,7 @@ class Chore < ActiveRecord::Base
     belongs_to :child
     belongs_to :task
     
-    validates_presence_of :id, :child_id, :task_id, :due_on, :completed
+    validates_presence_of :id, :child_id, :task_id, :due_on
     
     scope :all, :order => "due_on"
     
@@ -19,7 +19,7 @@ class Chore < ActiveRecord::Base
     scope :completed, :is => true
     
     def status
-  		"Pending" if !completed
+  		return "Pending" if !completed
   		"Completed"
     end
 end
