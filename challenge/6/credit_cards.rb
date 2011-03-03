@@ -18,17 +18,17 @@ class CreditCard
 		#AMEX
 		good = good || !@number.match(/^(34|37)\d{13}$/).nil?
 		#MASTERCARD
-		good = good || !@number.match(/^(51|52|53|54|55)\d{14}/).nil?
+		good = good || !@number.match(/^(51|52|53|54|55)\d{14}$/).nil?
 		#Diners Club / Carte Blanche
-		good = good || !@number.match(/^((300|301|302|303|305)\d{11}|(36|38)\d{12})/).nil?
+		good = good || !@number.match(/^((300|301|302|303|305)\d{11}|(36|38)\d{12})$/).nil?
 		#Discover
-		good = good || !@number.match(/^6011\d{12}/).nil?
+		good = good || !@number.match(/^6011\d{12}$/).nil?
 		#enRoute
-		good = good || !@number.match(/^(2014|2149)\d{11}/).nil?
+		good = good || !@number.match(/^(2014|2149)\d{11}$/).nil?
 		#JCB
-		good = good || !@number.match(/^3\d{15}/).nil?
+		good = good || !@number.match(/^3\d{15}$/).nil?
 		#JCB
-		good = good || !@number.match(/^(2131|1800)\d{11}/).nil?
+		good = good || !@number.match(/^(2131|1800)\d{11}$/).nil?
 		
 		return good
 	end

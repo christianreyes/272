@@ -11,7 +11,12 @@ class TestCounter < Test::Unit::TestCase
   
   def test_valid_AMEX_2012_02
     card = CreditCard.new(342345678901212,2012,12)
-	assert_equal(true,card.valid?)
+	assert(card.valid?)
+  end
+  
+  def test_valid_AMEX_e
+    card = CreditCard.new(311234567890123,2013,01)
+	assert_equal(false,card.valid?)
   end
   
   def test_valid_MAST_1
