@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Child:</strong>
+  <%= @chore.child_id %>
+</p>
+<p>
+  <strong>Task:</strong>
+  <%= @chore.task_id %>
+</p>
+<p>
+  <strong>Due On:</strong>
+  <%= @chore.due_on %>
+</p>
+<p>
+  <strong>Completed:</strong>
+  <%= @chore.completed %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_chore_path(@chore) %> |
+  <%= link_to "Destroy", @chore, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", chores_path %>
+</p>

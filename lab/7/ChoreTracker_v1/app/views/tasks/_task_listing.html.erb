@@ -1,0 +1,22 @@
+<table class="datagrid">
+  <thead class="datagrid">
+    <th width="190">Task</th>
+    <th width="120" align="center">Points</th>
+	<th width="90">&nbsp;</th>
+  </thead>
+  
+<% for task in @tasks %>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td align="left">&nbsp;<%= link_to(h(task.name), task_path(task)) %></td>
+    <td align="center"><%=h task.points %></td>
+    <td align="center">
+		<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_task_path(task))  %>&nbsp;
+    	<%= link_to(image_tag("icons/close.gif", :border => 0), task_path(task), :confirm => 'Are you sure you wish to delete this task?', :method => :delete) %>
+	</td>
+  </tr>
+<% end %>
+</table>
+<p class="supertiny"></p>
+<span class="smtext">
+<%= will_paginate @tasks, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

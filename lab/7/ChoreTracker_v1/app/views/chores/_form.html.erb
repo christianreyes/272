@@ -1,0 +1,20 @@
+<%= form_for @chore do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :child_id %><br />
+    <%= f.collection_select :child_id, Child.all, :id, :name, :prompt => "Select ..."  %>
+  </p>
+  <p>
+    <%= f.label :task_id %><br />
+    <%= f.collection_select :task_id, Task.all, :id, :name, :prompt => "Select ..."  %>
+  </p>
+  <p>
+    <%= f.label :due_on %><br />
+    <%= f.date_select :due_on, :order => [:month, :day, :year] %>
+  </p>
+  <p>
+    <%= f.label :completed %><br />
+    <%= f.check_box :completed %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

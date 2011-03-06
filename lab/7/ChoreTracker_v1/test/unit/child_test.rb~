@@ -1,0 +1,106 @@
+require 'test_helper'
+
+class ChildTest < ActiveSupport::TestCase
+  
+  # Start by using ActiveRecord macros
+  
+  should have_many :chores
+  should have_many(:tasks).through(:chores)
+  
+  should validate_presence_of :first_name
+  should validate_presence_of :last_name
+  
+  should allow_value("Dusty").for(:first_name)
+  should allow_value("Billy Bob").for(:first_name)
+  should_not allow_value("kelly").for(:first_name)
+  should_not allow_value("Fred1").for(:first_name)  
+  
+  # -------------------------------------------------
+  # More shoulda testing for the other methods, etc.
+  # by setting up context(s)
+  #
+  # Start with a simple example
+  context "A new child" do
+    # create the object I want with a factory with 'setup' method
+    setup do
+      @mark = Factory.create(:child, :first_name => "Mark")
+    end
+    
+    # write my test of name method
+    
+    should "has a full name" do
+      assert_equal "Mark Heimann", @mark.name
+    end
+    
+    # test the free method
+    
+    should "and has no chores" do
+      assert @mark.free?   #assert returns true if value is true
+    end
+    
+    # now destroy the factory with 'teardown' method
+    
+    teardown do
+      @mark.destroy
+    end
+    
+  end
+  
+  # --------------------------------
+  # Now a more complex context...
+  context "Adding children with different chores" do
+    # create the objects I want with factories
+    setup do 
+      @alex = Factory.create(:child)
+      @mark = Factory.create(:child, :first_name => "Mark")
+      @rachel = Factory.create(:child, :first_name => "Rachel")
+      @task = Factory.create(:task)
+      @chore = Factory.create(:chore, :child => @mark, :task => @task)
+      @chore2 = Factory.create(:chore, :child => @rachel, :task => @task)
+      @chore3 = Factory.create(:chore, :child => @rachel, :task => @task)
+    end
+    
+    # and provide a teardown method as well
+    teardown do
+      @mark.destroy
+      @rachel.destroy
+      @alex.destroy
+      @task.destroy
+      @chore.destroy
+      @chore2.destroy
+      @chore3.destroy
+    end
+  
+    # now run the tests:    
+    # test the counting of chores
+    should "shows that Mark has 1 chore" do
+      assert_equal 1, @mark.chores.size
+    end
+    
+    should "shows that Rachel has 2 chores" do
+      assert_equal 2, @rachel.chores.size
+    end
+    
+    # test the free method -- should return true
+    should "shows Alex has no chores yet" do
+      assert !@mark.free?
+    end    
+    
+    # test the free method again -- should return false
+    should "shows Mark still has chores to do" do
+      assert !@mark.free?
+    end
+    
+    # test the named scope 'all'
+    should "shows all the children are listed here in the right order" do
+      assert_equal ["Alex", "Mark", "Rachel"], Child.all.map{|c| c.first_name}
+    end
+    
+    # finally test of name method (one would suffice, actually, but do all three)
+    should "shows each has a full name" do
+      assert_equal @mark.name, "Mark"
+      assert_equal @rachel.name, "Rachel"
+    end
+    
+  end
+end

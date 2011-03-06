@@ -1,0 +1,24 @@
+<table class="datagrid">
+  <thead class="datagrid">
+    <th width="190">Child</th>
+    <th width="120" align="center">Chore</th>
+	<th width="120" align="center">Due On</th>
+	<th width="90">&nbsp;</th>
+  </thead>
+  
+<% for chore in @past %>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td align="left">&nbsp;<%= link_to(h(chore.child.name), child_path(chore.child_id)) %></td>
+    <td align="center"><%= link_to(h(chore.task.name), chore_path(chore)) %></td>
+	<td align="center"><%=h chore.due_on.strftime("%m/%d") %></td>
+    <td align="center">
+		<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_chore_path(chore))  %>&nbsp;
+    	<%= link_to(image_tag("icons/close.gif", :border => 0), chore_path(chore), :confirm => 'You wish to delete this chore?', :method => :delete) %>
+	</td>
+  </tr>
+<% end %>
+</table>
+<p class="supertiny"></p>
+<span class="smtext">
+<%= will_paginate @past, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
