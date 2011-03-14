@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :level %><br />
-    <%= f.text_field :level %>
+    <%= f.select(:level, Friend::FRIENDSHIP_LEVELS, :prompt => "Friendship Level...") %>
   </div>
   <div class="actions">
     <%= f.submit %>
