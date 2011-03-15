@@ -1,6 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
+gem 'simplecov'
+gem 'shoulda'
+gem 'factory_girl_rails'
+gem 'meta_where'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
