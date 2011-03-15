@@ -1,4 +1,4 @@
-<%= form_for(@friend) do |f| %>
+<%= form_for @friend, :html => { :multipart => true } do |f| %>
   <% if @friend.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
@@ -34,6 +34,10 @@
   <div class="field">
     <%= f.label :level %><br />
     <%= f.select(:level, Friend::FRIENDSHIP_LEVELS, :prompt => "Friendship Level...") %>
+  </div>
+  <div class="field">
+  	<%= f.label :photo %><br />
+  	<%= f.file_field :photo %>
   </div>
   <div class="actions">
     <%= f.submit %>

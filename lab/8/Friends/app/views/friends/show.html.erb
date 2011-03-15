@@ -29,7 +29,9 @@
   <b>Level:</b>
   <%= @friend.level %>
 </p>
-
+<% unless @friend.photo_url.nil? %>
+  <p><%= image_tag @friend.photo_url %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_friend_path(@friend) %> |
 <%= link_to 'Back', friends_path %>
