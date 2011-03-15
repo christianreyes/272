@@ -21,21 +21,21 @@
       <img src="./assets/0.4.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-03-14T20:28:18-04:00">2011-03-14T20:28:18-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-03-14T20:38:40-04:00">2011-03-14T20:38:40-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="red">40.0%</span>)
+    (<span class="red">41.27%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>5</b> files in total.
-    <b>55</b> relevant lines. 
-    <span class="green"><b>22</b> lines covered</span> and
-    <span class="red"><b>33</b> lines missed </span>
+    <b>6</b> files in total.
+    <b>63</b> relevant lines. 
+    <span class="green"><b>26</b> lines covered</span> and
+    <span class="red"><b>37</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -84,6 +84,15 @@
         <td>1</td>
         <td>1</td>
         <td>0</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#9a28e31abebd0123aeba8b54becdb342ec41670b" class="src_link" title="./app/mailers/friend_mailer.rb">./app/mailers/friend_mailer.rb</a></td>
+        <td class="red">50.0 %</td>
+        <td>13</td>
+        <td>8</td>
+        <td>4</td>
+        <td>4</td>
       </tr>
       
       <tr>
@@ -285,6 +294,44 @@
       </tr>
     </thead>
     <tbody>
+      
+    </tbody>
+  </table>
+</div>
+        
+          <div class="file_list_container" id="Ungrouped">
+  <h2>
+    Ungrouped
+    (<span class="red">50.0%</span>)
+  </h2>
+  <a name="Ungrouped"></a>
+  <div>
+    <b>1</b> files in total.
+    <b>8</b> relevant lines. 
+    <span class="green"><b>4</b> lines covered</span> and
+    <span class="red"><b>4</b> lines missed </span>
+  </div>
+  <table class="file_list">
+    <thead>
+      <tr>
+        <th>File</th>
+        <th>% covered</th>
+        <th>Lines</th>
+        <th>Relevant Lines</th>
+        <th>Lines covered</th>
+        <th>Lines missed</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><a href="#9a28e31abebd0123aeba8b54becdb342ec41670b" class="src_link" title="./app/mailers/friend_mailer.rb">./app/mailers/friend_mailer.rb</a></td>
+        <td class="red">50.0 %</td>
+        <td>13</td>
+        <td>8</td>
+        <td>4</td>
+        <td>4</td>
+      </tr>
       
     </tbody>
   </table>
@@ -1541,6 +1588,196 @@
     <tr class="never" >
       <td class="line_number">
         <pre>2</pre>
+      </td>
+      <td>
+        <pre>end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    </tbody>
+  </table>
+</div>
+      
+        <div class="source_table" id="9a28e31abebd0123aeba8b54becdb342ec41670b">
+  <table>
+    <thead>
+    <tr>
+      <td colspan="3">
+        <h3>./app/mailers/friend_mailer.rb</h3>
+        <h4><span class="red">50.0 %</span> covered</h4>
+      </td>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>Hits</th>
+    </tr>
+    </thead>
+    <tbody>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>1</pre>
+      </td>
+      <td>
+        <pre>class FriendMailer &lt; ActionMailer::Base</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>2</pre>
+      </td>
+      <td>
+        <pre>  default :from =&gt; &quot;272partymanager@gmail.com&quot;</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>3</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>4</pre>
+      </td>
+      <td>
+        <pre>  def new_friend_msg(friend)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>5</pre>
+      </td>
+      <td>
+        <pre>  	@friend = friend</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>6</pre>
+      </td>
+      <td>
+        <pre>  	mail(:to =&gt; friend.email, :subject =&gt; &quot;My new friend&quot;)</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>7</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>8</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>9</pre>
+      </td>
+      <td>
+        <pre>  def remove_friend_msg(friend)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>10</pre>
+      </td>
+      <td>
+        <pre>  	@friend = friend</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>11</pre>
+      </td>
+      <td>
+        <pre>  	mail(:to =&gt; friend.email, :subject =&gt; &quot;You are no longer my friend&quot;)</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>12</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>13</pre>
       </td>
       <td>
         <pre>end</pre>

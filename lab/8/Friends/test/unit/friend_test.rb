@@ -16,7 +16,7 @@ class FriendTest < ActiveSupport::TestCase
   should_not allow_value("bad").for(:email)
   should_not allow_value("fred@fred,com").for(:email)
   should_not allow_value("fred lives@my-fred.org").for(:email)
-  should_not allow_value("freddie@whitehouse.gov").for(:email)
+  should allow_value("freddie@whitehouse.gov").for(:email)
   should_not allow_value(1234).for(:email)
   
   

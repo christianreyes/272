@@ -95,6 +95,20 @@ Unit Tests:
     - !!null 
     - !!null 
     - !!null 
+    c:/Users/Christian/272/lab/8/Friends/app/mailers/friend_mailer.rb:
+    - 1
+    - 1
+    - !!null 
+    - 1
+    - 0
+    - 0
+    - !!null 
+    - !!null 
+    - 1
+    - 0
+    - 0
+    - !!null 
+    - !!null 
     c:/Users/Christian/272/lab/8/Friends/app/models/friend.rb:
     - 1
     - !!null 
@@ -117,4 +131,4 @@ Unit Tests:
     - 0
     - !!null 
     - !!null 
-  :created_at: 2011-03-14 20:28:18.027600000 -04:00
+  :created_at: 2011-03-14 20:38:40.441600000 -04:00

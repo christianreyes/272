@@ -44,7 +44,8 @@ class FriendsController < ApplicationController
 
     respond_to do |format|
       if @friend.save
-        format.html { redirect_to(@friend, :notice => 'Friend was successfully created.') }
+      	FriendMailer.new_friend_msg(@friend).deliver
+        format.html { redirect_to(@friend, :notice => "#{@friend.nickname} has been added as a friend and notified by email.") }
         format.xml  { render :xml => @friend, :status => :created, :location => @friend }
       else
         format.html { render :action => "new" }
