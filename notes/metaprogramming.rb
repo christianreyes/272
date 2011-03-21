@@ -29,3 +29,28 @@ puts "use the call method to invoke a particular method"
 p mallard.method(:walk).call
 swimming  = mallard.method(:swim)
 3.times { print swimming.call + " " }
+
+#-----------------------------------------
+
+Duck.instance_eval "def talk; 'quack'; end"
+
+# adds talk to the class like a static method
+# d.talk  will return an error
+
+Foo = Class.new
+Foo.class_eval do 
+  def class_bar
+    "class_bar"
+  end
+end
+
+Foo.instance_eval do
+  def instance_bar
+    "instance_bar"
+  end
+end
+
+Foo.class_bar #-> undefined method
+Foo.new.class_bar #-> "class_bar"
+Foo.instance_bar #-> "instance_bar"
+Foo.new.instance_bar #-> "undefined method instance_bar"
