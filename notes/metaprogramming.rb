@@ -50,7 +50,7 @@ Foo.instance_eval do
   end
 end
 
-Foo.class_bar #-> undefined method
+Foo.class_bar #-> undefined method 'class_bar' for Foo:Class
 Foo.new.class_bar #-> "class_bar"
 Foo.instance_bar #-> "instance_bar"
-Foo.new.instance_bar #-> "undefined method instance_bar"
+Foo.new.instance_bar #-> "undefined method instance_bar" for Foo object
