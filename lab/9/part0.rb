@@ -27,7 +27,35 @@ class Duck
    end
 end
 
-donald = Duck.new("Donald Duck", "Cartoon")
+# ===========================
+# Creating a Mathemagic class
+class Mathemagic
+  def self.create_multiplier(n)
+	
+	define_method("times_#{n}") do |var|
+		var * n
+	end
+  
+  end
+   
+  # generate create_multiplier methods here...
+  
+  
+  101.times {|i| create_multiplier(i)}
+   
+  # advancing to method_missing...
+  # def method_missing(method, *args)
+ 
+ 
+ 
+  # end
+end
+
+mm = Mathemagic.new
+p mm.times_0 2
+p mm.times_2 5
+p mm.times_3 4
+
 
 # bound = donald.talk("donald"){"...not a mouse like Mickey"}
 
@@ -40,23 +68,6 @@ donald = Duck.new("Donald Duck", "Cartoon")
 
 # eval("talk_sound = 'QUACK!'", bound)
 # puts eval("talk_sound",bound)
-
-# ===========================
-# Simple multiplier block (for bindings example)
-def times_(n)
-  lambda {|value| n * value }
-end
-
-times_two = times_(2)
-puts times_two.call(3)
-puts eval("n",times_two.binding)
-puts times_two.call(3.14159)
-#change the value of n to 3 in the binding...
-eval("n=3",times_two.binding)
-puts times_two.call(4)
-
-
-
 
 #donald.counting
 #donald.send(:counting)
@@ -77,3 +88,40 @@ puts times_two.call(4)
 	# bm.report("method"){n.times{donald.method(:length).call}}
 	# bm.report("eval"){n.times{eval "donald.length"}}
 # end
+
+
+# ===========================
+# # Simple multiplier block (for bindings example)
+# def times_(n)
+  # lambda {|value| n * value }
+# end
+
+# times_two = times_(2)
+# puts times_two.call(3)
+# puts eval("n",times_two.binding)
+# puts times_two.call(3.14159)
+# #change the value of n to 3 in the binding...
+# eval("n=3",times_two.binding)
+# puts times_two.call(4)
+
+# donald = Duck.new("Donald Duck", "Cartoon") 
+# mallard = Duck.new("Good Duck", "Mallard")
+
+# donald.instance_eval "def fly; 'Donald never flies'; end"
+
+# # puts donald.fly
+# # puts mallard.fly
+# # puts Duck.fly
+
+# Duck.instance_eval "def swim; 'swimmer'; end"
+
+# puts Duck.swim
+# #puts donald.swim #does not work
+
+# Duck.instance_eval{def walk; 'waddle';end}
+# puts Duck.walk
+
+# Duck.class_eval "def fly; 'real ducks fly'; end"
+# puts mallard.fly
+# puts donald.fly
+# #Duck.fly #undefined method
