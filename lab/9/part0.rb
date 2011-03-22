@@ -30,27 +30,25 @@ end
 # ===========================
 # Creating a Mathemagic class
 module Mathemagical
-  def self.create_multiplier(n)
-	
-	define_method("times_#{n}") do |var|
-		var * n
-	end
-  
-  end
-   
-  # generate create_multiplier methods here...
-  
-  
-  #101.times {|i| create_multiplier(i)}
-   
-  # advancing to method_missing...
-  def method_missing(method, *args)
-	if /times_(\d+)/.match(method.to_s) || /x(\d+)/.match(method.to_s)
+  def method_missing(method, *args, &block)
+	if /times_(\d+)/.match(method.to_s)
 		n = $1.to_i
-		args[0] * n
- 
+		self * n
+    elsif /exp/.match(method.to_s)
+		args.map{ |arg| self**arg.to_i }
+    else
+      self.instance_eval(&block) if block_given?
+      if !block_given?
+        "Unknown method call to Mathemagic"
+      else
+        "Executed block passed because #{method} not found"
+      end
     end
   end
+end
+
+class Numeric
+	include Mathemagical
 end
 
 # run these tests and make sure it is all working
@@ -59,16 +57,14 @@ p 3.14159.times_4
 p 3.exp(4)
 p 3.exp(1,2,3,4)
 p 3.divided_by(0)
-p 3.divided_by(0) { puts "IDIOT!  Everyone knows dividing by zero is wrong." 
+p 3.divided_by(0) { puts "IDIOT!  Everyone knows dividing by zero is wrong." }
 
 # mm = Mathemagic.new
 # p mm.times_0 2
 # p mm.times_2 5
 # p mm.times_3 4
 
-class Numeric
-	include Mathemagical
-end
+
 # bound = donald.talk("donald"){"...not a mouse like Mickey"}
 
 # puts eval("self",bound)
