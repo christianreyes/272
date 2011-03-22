@@ -48,7 +48,6 @@ class Reservations
   def opt_q
 	f = File.new(@file, "w")
 	@flights.each do |flight|
-		puts flight[1].number + "\t" + flight[1].smoking.to_s + "\t" + flight[1].nonsmoking.to_s
 		f.puts flight[1].number + "\t" + flight[1].smoking.to_s + "\t" + flight[1].nonsmoking.to_s
 	end
 	f.close
