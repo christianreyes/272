@@ -54,3 +54,10 @@ Foo.class_bar #-> undefined method 'class_bar' for Foo:Class
 Foo.new.class_bar #-> "class_bar"
 Foo.instance_bar #-> "instance_bar"
 Foo.new.instance_bar #-> "undefined method instance_bar" for Foo object
+
+module M; end
+
+class Duck
+	include M # becomes instance methods for Duck objects
+	#extend M puts M into the ancestor tree for the eignclass. Becomes class method
+end

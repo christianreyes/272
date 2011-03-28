@@ -2,6 +2,7 @@
 class Reservations
   def initialize(infile="Sandpiper.txt")
     @flights = {}
+	@num_reservations = 0
     @file = infile
 	load_flights(@file)
 	do_menu
@@ -25,7 +26,7 @@ class Reservations
 	
 	while(continue)
 		puts ""
-		puts "Choose Option: (P)rint flights, (M)ake Reservation, (L)ist Reservations, (Q)uit:"
+		puts "Choose Option: (P)rint flights, (M)ake Reservation, (Q)uit:"
 		option = gets.chomp.upcase
 		puts ""
 		
@@ -46,13 +47,16 @@ class Reservations
   end
   
   def opt_q
-	f = File.new(@file, "w")
-	@flights.each do |flight|
-		f.puts flight[1].number + "\t" + flight[1].smoking.to_s + "\t" + flight[1].nonsmoking.to_s
+	puts "#{@num_reservations.to_s} reservation(s) were made during this session"
+	if(@num_reservations > 0)
+		f = File.new(@file, "w")
+		@flights.each do |flight|
+			f.puts flight[1].number + "\t" + flight[1].smoking.to_s + "\t" + flight[1].nonsmoking.to_s
+		end
+		f.close
+		puts ""
+		puts "File #{@file} was successfully written"
 	end
-	f.close
-	
-	puts "File #{@file} was successfully written"
   end
   
   #print the flights
@@ -85,24 +89,29 @@ class Reservations
 			case opt
 			when "S"
 				f.boarding_pass("S")
+				@num_reservations += 1
 			when "N"
 				f.boarding_pass("N")
+				@num_reservations += 1
 			end
 		when 0 
 			puts "Only smoking seats are available. Continue? (Y)/(N):"
 			opt = gets.chomp.upcase
 			if(opt == "Y")
 				f.boarding_pass("S")
+				@num_reservations += 1
 			end
 		when 1
 			puts "Only non-smoking seats are available. Continue? (Y)/(N):"
 			opt = gets.chomp.upcase
 			if(opt == "Y")
 				f.boarding_pass("N")
+				@num_reservations += 1
 			end
-		when 0
+		when 2
 			puts "No seats are available."
 		end
+		puts f.status
 	else
 		puts "#{num} not a valid flight number"
 	end	
@@ -120,6 +129,12 @@ attr_accessor :number, :smoking, :nonsmoking
 	
 	def to_s
 		return @number + "\t" + @smoking.to_s + "\t" + @nonsmoking.to_s
+	end
+	
+	def status
+		puts "=============Flight #{@number} Status=========="
+		puts "Smoking: #{@smoking.to_s}\tNon-Smoking: #{@nonsmoking.to_s}"
+		puts "========================================="
 	end
 	
 	def boarding_pass(type)
