@@ -7,6 +7,7 @@ gem 'rails', '3.0.5'
 
 gem 'sqlite3'
 gem 'geokit'
+gem 'nifty-generators'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -30,3 +31,4 @@ gem 'geokit'
 # group :development, :test do
 #   gem 'webrat'
 # end
+gem "mocha", :group => :test

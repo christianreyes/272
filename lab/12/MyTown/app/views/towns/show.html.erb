@@ -1,0 +1,28 @@
+<% title "Town" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @town.name %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @town.state %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @town.description %>
+</p>
+<p>
+  <strong>Lat:</strong>
+  <%= @town.lat %>
+</p>
+<p>
+  <strong>Lon:</strong>
+  <%= @town.lon %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_town_path(@town) %> |
+  <%= link_to "Destroy", @town, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", towns_path %>
+</p>

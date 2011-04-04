@@ -1,0 +1,25 @@
+<% title "Attractions" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Street</th>
+    <th>Town</th>
+    <th>Lat</th>
+    <th>Lon</th>
+  </tr>
+  <% for attraction in @attractions %>
+    <tr>
+      <td><%= attraction.name %></td>
+      <td><%= attraction.street %></td>
+      <td><%= attraction.town_id %></td>
+      <td><%= attraction.lat %></td>
+      <td><%= attraction.lon %></td>
+      <td><%= link_to "Show", attraction %></td>
+      <td><%= link_to "Edit", edit_attraction_path(attraction) %></td>
+      <td><%= link_to "Destroy", attraction, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Attraction", new_attraction_path %></p>

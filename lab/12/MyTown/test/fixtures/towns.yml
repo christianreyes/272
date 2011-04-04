@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  state: MyString
+  description: MyText
+  lat: 1.5
+  lon: 1.5
+
+two:
+  name: MyString
+  state: MyString
+  description: MyText
+  lat: 1.5
+  lon: 1.5

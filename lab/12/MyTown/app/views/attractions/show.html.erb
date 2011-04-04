@@ -1,0 +1,28 @@
+<% title "Attraction" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @attraction.name %>
+</p>
+<p>
+  <strong>Street:</strong>
+  <%= @attraction.street %>
+</p>
+<p>
+  <strong>Town:</strong>
+  <%= @attraction.town_id %>
+</p>
+<p>
+  <strong>Lat:</strong>
+  <%= @attraction.lat %>
+</p>
+<p>
+  <strong>Lon:</strong>
+  <%= @attraction.lon %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_attraction_path(@attraction) %> |
+  <%= link_to "Destroy", @attraction, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", attractions_path %>
+</p>

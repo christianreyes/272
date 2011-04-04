@@ -1,0 +1,25 @@
+<% title "Towns" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>State</th>
+    <th>Description</th>
+    <th>Lat</th>
+    <th>Lon</th>
+  </tr>
+  <% for town in @towns %>
+    <tr>
+      <td><%= town.name %></td>
+      <td><%= town.state %></td>
+      <td><%= town.description %></td>
+      <td><%= town.lat %></td>
+      <td><%= town.lon %></td>
+      <td><%= link_to "Show", town %></td>
+      <td><%= link_to "Edit", edit_town_path(town) %></td>
+      <td><%= link_to "Destroy", town, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Town", new_town_path %></p>
