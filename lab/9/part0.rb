@@ -27,65 +27,66 @@ class Duck
    end
 end
 
-# ===========================
-# Creating a Mathemagic class
-module Mathemagical
-  def method_missing(method, *args, &block)
-	if /times_(\d+)/.match(method.to_s)
-		n = $1.to_i
-		self * n
-    elsif /exp/.match(method.to_s)
-		args.map{ |arg| self**arg.to_i }
-    else
-      self.instance_eval(&block) if block_given?
-      if !block_given?
-        "Unknown method call to Mathemagic"
-      else
-        "Executed block passed because #{method} not found"
-      end
-    end
-  end
-end
+# # ===========================
+# # Creating a Mathemagic class
+# module Mathemagical
+  # def method_missing(method, *args, &block)
+	# if /times_(\d+)/.match(method.to_s)
+		# n = $1.to_i
+		# self * n
+    # elsif /exp/.match(method.to_s)
+		# args.map{ |arg| self**arg.to_i }
+    # else
+      # self.instance_eval(&block) if block_given?
+      # if !block_given?
+        # "Unknown method call to Mathemagic"
+      # else
+        # "Executed block passed because #{method} not found"
+      # end
+    # end
+  # end
+# end
 
-class Numeric
-	include Mathemagical
-end
+# class Numeric
+	# include Mathemagical
+# end
 
-# run these tests and make sure it is all working
-p 3.times_3
-p 3.14159.times_4
-p 3.exp(4)
-p 3.exp(1,2,3,4)
-p 3.divided_by(0)
-p 3.divided_by(0) { puts "IDIOT!  Everyone knows dividing by zero is wrong." }
+# # run these tests and make sure it is all working
+# p 3.times_3
+# p 3.14159.times_4
+# p 3.exp(4)
+# p 3.exp(1,2,3,4)
+# p 3.divided_by(0)
+# p 3.divided_by(0) { puts "IDIOT!  Everyone knows dividing by zero is wrong." }
 
 # mm = Mathemagic.new
 # p mm.times_0 2
 # p mm.times_2 5
 # p mm.times_3 4
 
+donald = Duck.new("Donald Duck", "Cartoon") 
+mallard = Duck.new("Good Duck", "Mallard")
 
-# bound = donald.talk("donald"){"...not a mouse like Mickey"}
+bound = donald.talk("donald"){"...not a mouse like Mickey"}
 
-# puts eval("self",bound)
-# puts eval("@name",bound)
-# puts eval("talk_sound",bound)
-# puts eval("param",bound)
-# puts eval("yield",bound)
+puts eval("self",bound)
+puts eval("@name",bound)
+puts eval("talk_sound",bound)
+puts eval("param",bound)
+puts eval("yield",bound)
 
+eval("talk_sound = 'QUACK!'", bound)
+puts eval("talk_sound",bound)
 
-# eval("talk_sound = 'QUACK!'", bound)
-# puts eval("talk_sound",bound)
+donald.counting
+donald.send(:counting)
+donald.method(:counting).call
+eval "donald.counting"
 
-#donald.counting
-#donald.send(:counting)
-#donald.method(:counting).call
-#eval "donald.counting"
-
-# puts donald.length
-# puts donald.send(:length)
-# puts donald.method(:length).call
-# eval "puts donald.length"
+puts donald.length
+puts donald.send(:length)
+puts donald.method(:length).call
+eval "puts donald.length"
 
 # require 'benchmark'
 # n = 100000
@@ -112,8 +113,6 @@ p 3.divided_by(0) { puts "IDIOT!  Everyone knows dividing by zero is wrong." }
 # eval("n=3",times_two.binding)
 # puts times_two.call(4)
 
-# donald = Duck.new("Donald Duck", "Cartoon") 
-# mallard = Duck.new("Good Duck", "Mallard")
 
 # donald.instance_eval "def fly; 'Donald never flies'; end"
 
