@@ -9,6 +9,7 @@ class TownsController < ApplicationController
 
   def new
     @town = Town.new
+	3.times{@town.attractions.build}
   end
 
   def create

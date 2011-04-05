@@ -1,0 +1,15 @@
+<div class="field">
+  The name of your town:<br />
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :state %>:<br />
+  <%= f.select(:state, Town::STATES_LIST, :prompt => "Select ...") %>
+</div>
+
+<div class="field">
+	What's so great about your town:
+  <%# town_form.label :description %><br />
+  <%= f.text_area :description, :cols => 30, :rows => 7 %>
+</div>

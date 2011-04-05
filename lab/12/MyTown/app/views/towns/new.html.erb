@@ -1,5 +1,27 @@
-<% title "New Town" %>
+<h1>Add your town to our system...</h1>
 
-<%= render 'form' %>
+<% form_for(@town) do |town_form| %>
+  <% if @town.errors.any? %>
+		<%= render :partial => "town_errors" %>
+  <% end %>
+<table>
+	<tr>
+		<td width="400" valign="top">
+			<p class="supertiny">&nbsp;</p>
+			<!-- Add the town fields here -->
+			<%= render :partial => 'town_fields', :locals => {:f => town_form } %>
+			
+		</td>
+		<td width="400" valign="top">
+			<p>List up to three attractions in your town:</p>				
+			<% town_form.fields_for :attractions do |attraction_form| %>
+				<!-- Add the attraction fields here -->
+				<%= render :partial => 'attraction_fields', :locals => {:f => attraction_form } %>
+			<% end %> 
+		</td>
+	</tr>
+	<tr><td colspan="2" align="center"><br><%= town_form.submit "Add My Town to this awesome system" %></td></tr>
+</table>
+<% end %>
 
-<p><%= link_to "Back to List", towns_path %></p>
+<%= link_to 'Back', towns_path %>
