@@ -1,8 +1,10 @@
 class Attraction < ActiveRecord::Base
   attr_accessible :name, :street, :town_id, :lat, :lon
+  
+  before_save :find_attraction_coordinates
 
   belongs_to :town
-  
+ 
   private
     def find_attraction_coordinates
       str = self.street

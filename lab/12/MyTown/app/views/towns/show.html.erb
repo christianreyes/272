@@ -21,6 +21,16 @@
   <%= @town.lon %>
 </p>
 
+<%= image_tag @town.create_map_link %>
+
+<p>
+<b>Attractions in <%= @town.name %>:</b>
+  <ol>
+    <% for attraction in @attractions %>
+	  <li><%= attraction.name %> - <%= attraction.street %></li>
+	<% end %>
+  </ol>
+</p>
 <p>
   <%= link_to "Edit", edit_town_path(@town) %> |
   <%= link_to "Destroy", @town, :confirm => 'Are you sure?', :method => :delete %> |
