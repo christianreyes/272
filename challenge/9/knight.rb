@@ -6,7 +6,8 @@ def knights_travails(start,finish,*forbidden)
 	
 	start = Position.new(str_to_x_y(start)[0],str_to_x_y(start)[1])
 	finish = Position.new(str_to_x_y(finish)[0],str_to_x_y(finish)[1])
-	
+
+	return nil if forbidden.include?(finish.to_s) 
 	move_memory = {}
 	#puts "forbidden #{forbidden}"
 	pq = Containers::PriorityQueue.new
@@ -41,7 +42,7 @@ def knights_travails(start,finish,*forbidden)
 			end
 			return out.reverse
 		else
-			return "nil"
+			return nil
 		end
 	else
 		puts "Invalid start position"
@@ -127,5 +128,5 @@ end
 
 #cds = str_to_x_y("A1")
 #puts knight_moves(Position.new cds[0],cds[1])
-puts knights_travails("A8","B7", "B6")
-puts knights_travails("A8","G6", "B6", "C7")
+#puts knights_travails("A8","B7", "B6")
+#puts knights_travails("A8","G6", "B6", "C7")
