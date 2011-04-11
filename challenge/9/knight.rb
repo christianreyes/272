@@ -3,37 +3,45 @@
 require 'algorithms'
 
 def knights_travails(start,finish,*forbidden)
-	start = Position.new(start)
-	finish = Position.new(finish)
+	
+	start = Position.new(str_to_x_y(start)[0],str_to_x_y(start)[1])
+	finish = Position.new(str_to_x_y(finish)[0],str_to_x_y(finish)[1])
+	
 	move_memory = {}
-	puts "forbidden #{forbidden}"
+	#puts "forbidden #{forbidden}"
 	pq = Containers::PriorityQueue.new
 	if Position.valid_position?(start)
-		n = AStarNode.new(start.to_s,start.to_s,0,-Position.distance(start,finish))
+		n = AStarNode.new(start,start,0,-Position.distance(start,finish))
 		pq.push(n,n.f)
 		current = start
 		while(!move_memory.include?(finish.to_s) && !pq.empty?)
 			current = pq.pop
-			puts "current: " + current.data
-			if move_memory.has_key?(current.data) 
-				if move_memory[current.data].f < current.f
-					move_memory[current.data] = current
+			#puts "current: " + current.data.to_s
+			if move_memory.has_key?(current.data.to_s) 
+				if move_memory[current.data.to_s].f < current.f
+					move_memory[current.data.to_s] = current
 				end
 			else
-				move_memory[current.data] = current
+				move_memory[current.data.to_s] = current
 			end
 			
-			knight_moves(Position.new(current.data)).each do |p| 
+			knight_moves(current.data).each do |p| 
 				if(Position.valid_position?(p) && !forbidden.include?(p.to_s))
-					temp = AStarNode.new(p.to_s, current.data, current.g - 3, -Position.distance(p,finish)) 
+					temp = AStarNode.new(p, current, current.g - 3, -Position.distance(p,finish)) 
 					pq.push(temp, temp.f )
 				end
 			end
 		end
 		node = move_memory[finish.to_s]
-		while node.data != start.to_s
-			puts "at node #{node.data}, moving to #{node.parent}"
-			node = move_memory[node.parent]
+		if(node)
+			out = [node.data.to_s]
+			while node.parent.data.to_s != start.to_s
+				node = move_memory[node.parent.data.to_s]
+				out.push(node.data.to_s)
+			end
+			return out.reverse
+		else
+			return "nil"
 		end
 	else
 		puts "Invalid start position"
@@ -42,10 +50,18 @@ def knights_travails(start,finish,*forbidden)
 end
 
 def knight_moves(k)
-	[k.up.up.left, k.up.up.right,
-	 k.up.right.right, k.right.right.down,
-	 k.down.down.right,	k.down.down.left,
-	 k.left.left.down, k.up.left.left]
+	out_moves = []
+	moves = [k.up.up.left, k.up.up.right,
+			 k.up.right.right, k.right.right.down,
+			 k.down.down.right,	k.down.down.left,
+			 k.left.left.down, k.up.left.left]
+	
+	moves.each do |m|
+		if Position.valid_position?(m)
+			out_moves.push(m)
+		end
+	end
+	out_moves
 end
 
 class AStarNode
@@ -63,53 +79,53 @@ class AStarNode
 	end
 end
 
+def str_to_x_y(str)
+	[str.bytes.to_a[0] - "A".bytes.to_a[0], str.bytes.to_a[1].chr.to_i - 1]
+end
+
 class Position
-	attr_accessor :pos
+	attr_accessor :pos, :letter, :number, :x, :y
 	
 	@@reg = /^([ABCDEFGH])([1-8])$/
 	
 	#string for position -> "A1"
-	def initialize(pos)
-		@pos = pos
-	end
-	
-	def letter
-		self.to_s.chars.to_a[0]
-	end
-	
-	def num
-		self.to_s.chars.to_a[1]
+	def initialize(x, y)
+		@letter  = ( "A".bytes.to_a[0] + x ).chr
+		@number = y + 1
+		@x = x 
+		@y = y
 	end
 	
 	def up
-		newPos = Position.new(letter + (num.to_i + 1).to_s)
+		newPos = Position.new(@x, @y + 1)
 	end
 
 	def down
-		newPos = Position.new(letter + (num.to_i - 1).to_s)
+		newPos = Position.new(@x, @y - 1)
 	end
 	
 	def left
-		newPos = Position.new((letter.bytes.to_a[0] - 1).chr + num)
+		newPos = Position.new(@x - 1, @y)
 	end
 	
 	def right
-		newPos = Position.new((letter.bytes.to_a[0] + 1).chr + num)
+		newPos = Position.new(@x + 1, @y)
 	end
 	
 	def to_s
-		@pos
+		@letter + @number.to_s
 	end
 	
 	def self.valid_position?(position)
-		/^[ABCDEFGH][1-8]$/.match(position.to_s)	
+		0 <= position.x && position.x <= 7 && 0 <= position.y && position.y <= 7	
 	end
 	
 	def self.distance(pos1, pos2)
-		(pos2.letter.bytes.to_a[0] - pos1.letter.bytes.to_a[0] + pos2.num.to_i - pos1.num.to_i).abs
+		(pos2.x - pos1.x + pos2.y - pos1.y).abs
 	end
 end
 
-puts knight_moves(Position.new "A8")
+#cds = str_to_x_y("A1")
+#puts knight_moves(Position.new cds[0],cds[1])
 puts knights_travails("A8","B7", "B6")
 puts knights_travails("A8","G6", "B6", "C7")
