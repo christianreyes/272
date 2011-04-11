@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  playing_next: MyString
+  when_playing_next: 2011-04-11 19:43:32
+  photo: MyString
+  song: MyString
+
+two:
+  name: MyString
+  description: MyText
+  playing_next: MyString
+  when_playing_next: 2011-04-11 19:43:32
+  photo: MyString
+  song: MyString

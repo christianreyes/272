@@ -1,4 +1,8 @@
 BandBlitz::Application.routes.draw do
+  resources :bands
+
+  resources :genres
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

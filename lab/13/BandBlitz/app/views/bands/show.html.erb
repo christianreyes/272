@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @band.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @band.description %>
+</p>
+
+<p>
+  <b>Playing next:</b>
+  <%= @band.playing_next %>
+</p>
+
+<p>
+  <b>When playing next:</b>
+  <%= @band.when_playing_next %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @band.photo %>
+</p>
+
+<p>
+  <b>Song:</b>
+  <%= @band.song %>
+</p>
+
+
+<%= link_to 'Edit', edit_band_path(@band) %> |
+<%= link_to 'Back', bands_path %>
