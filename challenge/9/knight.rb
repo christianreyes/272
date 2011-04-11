@@ -6,7 +6,7 @@ def knights_travails(start,finish,*forbidden)
 	start = Position.new(start)
 	finish = Position.new(finish)
 	move_memory = {}
-	
+	puts "forbidden #{forbidden}"
 	pq = Containers::PriorityQueue.new
 	if Position.valid_position?(start)
 		n = AStarNode.new(start.to_s,start.to_s,0,-Position.distance(start,finish))
@@ -110,5 +110,6 @@ class Position
 	end
 end
 
+puts knight_moves(Position.new "A8")
 puts knights_travails("A8","B7", "B6")
-puts knights_travails("A8","G6", "C7")
+puts knights_travails("A8","G6", "B6", "C7")
