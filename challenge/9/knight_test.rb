@@ -28,4 +28,12 @@ class TestKnight < Test::Unit::TestCase
 	assert_equal(["B3", "C1", "D3", "F2", "H1"],knights_travails("A1","H1"))
   end
   
+  def test_A3_to_D6
+	assert_equal(["D5", "F4", "G2"],knights_travails("C7","G2"))
+  end
+  
+  def test_A3_to_F8
+	assert_equal(["B5", "C7", "E6", "F8"],knights_travails("A3","F8"))
+  end
+  
 end

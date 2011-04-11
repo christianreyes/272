@@ -1,13 +1,14 @@
 #!/usr/bin/env ruby
 
 require 'algorithms'
+# http://algorithms.rubyforge.org/
 
 def knights_travails(start,finish,*forbidden)
 	
 	start = Position.new(str_to_x_y(start)[0],str_to_x_y(start)[1])
 	finish = Position.new(str_to_x_y(finish)[0],str_to_x_y(finish)[1])
 
-	return nil if forbidden.include?(finish.to_s) 
+	return nil if (forbidden.include?(finish.to_s) || start.to_s==finish.to_s)
 	move_memory = {}
 	#puts "forbidden #{forbidden}"
 	pq = Containers::PriorityQueue.new
