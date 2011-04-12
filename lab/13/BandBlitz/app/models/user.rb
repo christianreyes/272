@@ -23,6 +23,13 @@ class User < ActiveRecord::Base
     BCrypt::Engine.hash_secret(pass, password_salt)
   end
 
+  ROLES = [['Administrator', :admin],['Band Manager', :manager], ['Band Member', :member]]
+
+  def role?(authorized_role)
+    return false if role.nil?
+    role.to_sym == authorized_role
+  end
+
   private
 
   def prepare_password
