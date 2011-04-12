@@ -24,6 +24,7 @@ class BandsController < ApplicationController
   # GET /bands/new
   # GET /bands/new.xml
   def new
+    authorize! :new, @band
     @band = Band.new
 
     respond_to do |format|
@@ -34,12 +35,14 @@ class BandsController < ApplicationController
 
   # GET /bands/1/edit
   def edit
+    authorize! :update, @band
     @band = Band.find(params[:id])
   end
 
   # POST /bands
   # POST /bands.xml
   def create
+    authorize! :new, @band
     @band = Band.new(params[:band])
 
     respond_to do |format|
@@ -56,6 +59,7 @@ class BandsController < ApplicationController
   # PUT /bands/1
   # PUT /bands/1.xml
   def update
+    authorize! :update, @band
     @band = Band.find(params[:id])
 
     respond_to do |format|
