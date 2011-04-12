@@ -28,7 +28,7 @@ def knights_travails(start,finish,*forbidden)
 			end
 			
 			knight_moves(current.data).each do |p| 
-				if(Position.valid_position?(p) && !forbidden.include?(p.to_s))
+				if(!forbidden.include?(p.to_s))
 					temp = AStarNode.new(p, current, current.g - 3, -Position.distance(p,finish)) 
 					pq.push(temp, temp.f )
 				end
