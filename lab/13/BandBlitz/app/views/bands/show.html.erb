@@ -1,35 +1,59 @@
-<p id="notice"><%= notice %></p>
+<% title "Band Information :: #{h @band.name}" %>
 
-<p>
-  <b>Name:</b>
+<h1>
   <%= @band.name %>
-</p>
 
+<span class="options">
+	
+		<%= link_to "Edit band", edit_band_path(@band) %> |
+	
+	
+		<%= link_to "Remove band", @band, :confirm => 'Are you sure?', :method => :delete %> |
+		
+  <%= link_to "View other bands", bands_path %>
+</span>
+</h1>
 <p>
-  <b>Description:</b>
+	<% if @band.photo_url.nil? || @band.photo_url.include?("missing") %>
+		<%= image_tag "missing.png" %>
+	<% else %>
+  	<%= image_tag @band.photo_url %>
+	<% end %>
+	<strong>Description:</strong>
   <%= @band.description %>
 </p>
-
+<p class="clear"></p>
 <p>
-  <b>Playing next:</b>
-  <%= @band.playing_next %>
+	<% unless @band.song_url.nil? %>
+		<%= link_to "Click here to download a music sample", @band.song_url %>
+	<% end %>
+	
 </p>
-
 <p>
-  <b>When playing next:</b>
-  <%= @band.when_playing_next %>
+	<strong><%= "#{(@band.genres.size == 1) ? 'Band genre is:' : 'Band genres include:'}" %></strong>
+	<ul>
+		<% for genre in @band.genres  %>
+			<li><%= genre.name %></li>
+		<% end  %>
+	</ul>
 </p>
+<% unless @band.playing_next.blank? %>
+	<p>
+	  <strong>Playing next at:</strong>
+	  <%= @band.playing_next %>
+	</p>
+	<p>
+	  <strong>When playing next:</strong>
+	  <%= @band.when_playing_next.strftime("%b %e") %>
+	</p>
+<% end %>
 
+<!-- <%# unless @band.comments.empty? || @band.comments.nil? %>
+	<p>
+		<strong><%# pluralize(@band.comments.size, 'comment') %> about <%# @band.name %> so far...</strong><br>
+		<%# render :partial => "comment_list" %>
+	</p>
+<%# end %>
 <p>
-  <b>Photo:</b>
-  <%= @band.photo %>
-</p>
-
-<p>
-  <b>Song:</b>
-  <%= @band.song %>
-</p>
-
-
-<%= link_to 'Edit', edit_band_path(@band) %> |
-<%= link_to 'Back', bands_path %>
+	<%# render :partial => "comment_form" %>
+</p> -->

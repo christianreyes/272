@@ -1,33 +1,35 @@
-<h1>Listing bands</h1>
+<% title "The Bands of BandBlitz" %>
 
+<h1><em>The Bands of BandBlitz</em></h1>
+<p class="supertiny">&nbsp;</p>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Playing next</th>
-    <th>When playing next</th>
-    <th>Photo</th>
-    <th>Song</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th width="175">Name</th>
+    <th width="500">Description</th>
+    <th width="250">Playing Next</th>
+		<th width="80">&nbsp;</th>
   </tr>
-
-<% @bands.each do |band| %>
-  <tr>
-    <td><%= band.name %></td>
-    <td><%= band.description %></td>
-    <td><%= band.playing_next %></td>
-    <td><%= band.when_playing_next %></td>
-    <td><%= band.photo %></td>
-    <td><%= band.song %></td>
-    <td><%= link_to 'Show', band %></td>
-    <td><%= link_to 'Edit', edit_band_path(band) %></td>
-    <td><%= link_to 'Destroy', band, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for band in @bands %>
+    <tr>
+      <td><%= link_to band.name, band_path(band) %></td>
+			<td><%= raw(truncate(band.description, :length => 100, :omission => (link_to "...(more)", band))) %></td>
+			<% unless band.playing_next.blank?  %>
+      	<td align="center"><%= band.playing_next %> - <%= band.when_playing_next.strftime("%b %e") %></td>
+			<% else %>
+				<td align="center">N/A</td>
+			<% end %>
+			<td align="center">
+      
+				<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_band_path(band)) %> &nbsp;
+			
+			
+				<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), band_path(band), :confirm => 'Are you sure you wish to delete this band?', :method => :delete) %>
+			
+			</td>
+    </tr>
+  <% end %>
 </table>
+<p class="supertiny">&nbsp;</p>
 
-<br />
+	<p><%= link_to "Create New Band", new_band_path %></p>
 
-<%= link_to 'New Band', new_band_path %>
