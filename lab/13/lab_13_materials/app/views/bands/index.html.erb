@@ -19,17 +19,17 @@
 				<td align="center">N/A</td>
 			<% end %>
 			<td align="center">
-                <% if can? :update, Band %>
-				    <%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_band_path(band)) %> &nbsp;
-			    <% end %>
-		        <% if can? :delete, Band %>	
-				    <%= link_to(image_tag("icons/delete_dg.gif", :border => 0), band_path(band), :confirm => 'Are you sure you wish to delete this band?', :method => :delete) %>
-			    <% end %>
+      
+				<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_band_path(band)) %> &nbsp;
+			
+			
+				<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), band_path(band), :confirm => 'Are you sure you wish to delete this band?', :method => :delete) %>
+			
 			</td>
     </tr>
   <% end %>
 </table>
 <p class="supertiny">&nbsp;</p>
-<% if can? :create, Band %>
+
 	<p><%= link_to "Create New Band", new_band_path %></p>
-<% end %>
+

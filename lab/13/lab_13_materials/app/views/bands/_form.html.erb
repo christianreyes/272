@@ -1,0 +1,48 @@
+<%= form_for @band, :html => { :multipart => true } do |f| %>
+  <% if @band.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@band.errors.count, "error") %> prohibited this band from being saved:</h2>
+
+      <ul>
+      <% @band.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 4 %>
+  </div>
+	<div class="field">
+		<% for genre in Genre.all  %>
+		   <%= check_box_tag "band[genre_ids][]", genre.id, @band.genres.include?(genre) %>
+			 <%= genre.name %>
+		   <br />
+		<% end  %>
+	</div>
+  <div class="field">
+    <%= f.label :playing_next %><br />
+    <%= f.text_field :playing_next %>
+  </div>
+  <div class="field">
+    <%= f.label :when_playing_next %><br />
+    <%= f.datetime_select :when_playing_next %>
+  </div>
+  <div class="field"> 
+		<%= f.label :photo %><br /> 
+		<%= f.file_field :photo %>
+	</div>
+  <div class="field">
+    <%= f.label :song %><br />
+    <%= f.file_field :song %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

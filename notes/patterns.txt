@@ -1,0 +1,31 @@
+pattern 1: safe exploration, "let me explore without getting lost or in trouble"
+	-back button
+pattern 2: instant gratification
+pattern 3: satisficing
+pattern 4: changes in midstream
+pattern 5: deferred choices
+pattern 7: habituation
+pattern 8: spatial memory
+pattern 9: prospective memory
+pattern 10: streamlined repetition
+pattern 11: keyboard obly
+pattern 12: other people's advice
+
+heiarchy of system needs
+
+creativity
+
+proficiency
+
+usability
+
+reliability
+
+flexibility
+
+slips -- errors of action (or execution)
+	-capture errors
+	-descriotion errors
+	-assoiciative activation errors
+	
+mistakes --error of intention

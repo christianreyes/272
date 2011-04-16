@@ -120,6 +120,7 @@ class Position
 	
 	def self.valid_position?(position)
 		0 <= position.x && position.x <= 7 && 0 <= position.y && position.y <= 7	
+		0 <= position.x && position.x <= 7 && 0 <= position.y && position.y <= 7	
 	end
 	
 	def self.distance(pos1, pos2)

@@ -8,6 +8,17 @@ class Ability
     
     if user.role? :admin
         can :manage, :all
+    elsif user.role? :manager
+        can :update, Band do |band|
+            band.id == user.band_id
+        end
+        can :delete, Band do |band|
+            band.id == user.band_id
+        end
+    elsif user.role? :member
+        can :update, Band do |band|
+            band.id == user.band_id
+        end
     else
         can :read, :all
     end
